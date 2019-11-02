@@ -1,0 +1,46 @@
+<idea-plugin>
+  <id>commit-template-idea-plugin</id>
+  <name>Git Commit Template</name>
+  <version>1.1.0</version>
+
+  <vendor email="damien.arrachequesne@gmail.com" />
+
+  <description><![CDATA[
+        <p>Create a commit message with the following template:</p>
+
+        <pre>
+        &lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+        &lt;BLANK LINE&gt;
+        &lt;body&gt;
+        &lt;BLANK LINE&gt;
+        &lt;footer&gt;
+        </pre>
+    ]]></description>
+
+  <idea-version since-build="145.0"/>
+
+  <depends>com.intellij.modules.vcs</depends>
+  <depends>Git4Idea</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <project-components>
+    <!-- Add your project components here -->
+    <component>
+      <implementation-class>com.leroymerlin.commit.MobbingPlugin</implementation-class>
+      <option name="workspace" value="true"/>
+    </component>
+  </project-components>
+
+  <actions>
+    <action id="Commit.Button" class="com.leroymerlin.commit.CreateCommitAction"
+            text="MOB Commit"
+            description="MOB Commit"
+            icon="PluginIcons.LOAD">
+      <add-to-group group-id="Vcs.MessageActionGroup" anchor="first"/>
+    </action>
+  </actions>
+
+</idea-plugin>
