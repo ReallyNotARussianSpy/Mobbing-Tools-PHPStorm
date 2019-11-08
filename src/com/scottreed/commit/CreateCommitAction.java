@@ -1,20 +1,15 @@
-package com.leroymerlin.commit;
+package com.scottreed.commit;
 
 import com.google.gson.Gson;
-import com.intellij.ide.DataManager;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
-import com.intellij.openapi.project.ProjectUtil;
-import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.vcs.CommitMessageI;
 import com.intellij.openapi.vcs.VcsDataKeys;
 import com.intellij.openapi.vcs.ui.Refreshable;
 import com.intellij.openapi.wm.WindowManager;
 import git4idea.branch.GitBranchUtil;
-import git4idea.repo.GitRepository;
-import git4idea.repo.GitRepositoryManager;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
@@ -22,9 +17,6 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * @author Damien Arrachequesne
- */
 public class CreateCommitAction extends AnAction implements DumbAware {
 
     @Override

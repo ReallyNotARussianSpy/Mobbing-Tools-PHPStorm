@@ -1,7 +1,7 @@
 <idea-plugin>
-  <id>commit-template-idea-plugin</id>
-  <name>Git Commit Template</name>
-  <version>1.1.0</version>
+  <id>mobbing-tools-plugin</id>
+  <name>Mobbing Tools</name>
+  <version>1.0.0</version>
 
   <vendor email="damien.arrachequesne@gmail.com" />
 
@@ -29,19 +29,19 @@
   <project-components>
     <!-- Add your project components here -->
     <component>
-      <implementation-class>com.leroymerlin.commit.MobbingPlugin</implementation-class>
+      <implementation-class>com.scottreed.commit.MobbingPlugin</implementation-class>
       <option name="workspace" value="true"/>
     </component>
   </project-components>
 
   <actions>
-    <action id="Commit.Button" class="com.leroymerlin.commit.CreateCommitAction"
+    <action id="Commit.Button" class="com.scottreed.commit.CreateCommitAction"
             text="MOB Commit"
             description="MOB Commit"
             icon="PluginIcons.LOAD">
       <add-to-group group-id="Vcs.MessageActionGroup" anchor="first"/>
     </action>
-    <action id="MobbingPlugin.LogParse" class="com.leroymerlin.commit.LogParseAction" text="MOB Log Parse">
+    <action id="MobbingPlugin.LogParse" class="com.scottreed.commit.LogParseAction" text="MOB Log Parse">
       <add-to-group group-id="VcsGroups" anchor="before" relative-to-action="VcsGlobalGroup"/>
     </action>
   </actions>

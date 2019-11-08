@@ -1,4 +1,4 @@
-package com.leroymerlin.commit;
+package com.scottreed.commit;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VfsUtil;
@@ -27,21 +27,6 @@ public class CommitPanel {
         if (result.isSuccess()) {
             result.getOutput().forEach(changeScope::addItem);
         }
-    }
-
-    JPanel getMainPanel() {
-        return mainPanel;
-    }
-
-    CommitMessage getCommitMessage() {
-        return new CommitMessage(
-                (ChangeType) changeType.getSelectedItem(),
-                (String) changeScope.getSelectedItem(),
-                shortDescription.getText().trim(),
-                longDescription.getText().trim(),
-                closedIssues.getText().trim(),
-                breakingChanges.getText().trim()
-        );
     }
 
 }

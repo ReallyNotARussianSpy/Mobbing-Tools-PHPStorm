@@ -1,4 +1,4 @@
-package com.leroymerlin.commit;
+package com.scottreed.commit;
 
 import com.google.gson.Gson;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -12,15 +12,12 @@ import com.intellij.openapi.vcs.VcsException;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.wm.WindowManager;
-import com.intellij.util.containers.ContainerUtil;
-import com.intellij.vcs.log.VcsFullCommitDetails;
 import git4idea.GitCommit;
 import git4idea.branch.GitBranchUtil;
 import git4idea.history.GitHistoryUtils;
 import git4idea.repo.GitRepository;
 
 import java.awt.*;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -74,7 +71,7 @@ public class LogParseAction extends AnAction {
             Editor editor = FileEditorManager.getInstance(activeProject).getSelectedTextEditor();
             CaretModel caretModel = editor.getCaretModel();
 
-            caretModel.moveToLogicalPosition(new LogicalPosition((int) lineNumber,(int) columnNumber));
+            caretModel.moveToLogicalPosition(new LogicalPosition((int) lineNumber, (int) columnNumber));
 
             ScrollingModel scrollingModel = editor.getScrollingModel();
             scrollingModel.scrollToCaret(ScrollType.CENTER);
