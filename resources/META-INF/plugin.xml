@@ -41,6 +41,9 @@
             icon="PluginIcons.LOAD">
       <add-to-group group-id="Vcs.MessageActionGroup" anchor="first"/>
     </action>
+    <action id="MobbingPlugin.LogParse" class="com.leroymerlin.commit.LogParseAction" text="MOB Log Parse">
+      <add-to-group group-id="VcsGroups" anchor="before" relative-to-action="VcsGlobalGroup"/>
+    </action>
   </actions>
 
 </idea-plugin>

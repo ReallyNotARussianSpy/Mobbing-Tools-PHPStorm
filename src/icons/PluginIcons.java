@@ -5,7 +5,7 @@ import com.intellij.openapi.util.IconLoader;
 import javax.swing.*;
 
 /**
- * @author Damien Arrachequesne
+ * @author Scott Reed
  */
 public interface PluginIcons {
     Icon LOAD = IconLoader.getIcon("/icons/load.png");

@@ -52,8 +52,8 @@ public class CreateCommitAction extends AnAction implements DumbAware {
         ArrayList<Object[]> workspaceStatusStringBuilder = new ArrayList<Object[]>();
         for (FileModificationEntry s : MobbingPlugin.modifiedFiles)
         {
-            if ((System.currentTimeMillis() / 1000L) - s.lastModified < (60 * 15) && s.file != "/Dummy.txt") {
-                Object[] arr = { s.file, s.line, s.column };
+            if ((System.currentTimeMillis() / 1000L) - s.lastModified < (60 * 15) && !s.file.equals("/Dummy.txt")) {
+                Object[] arr = { s.relative_file, s.line, s.column };
                 workspaceStatusStringBuilder.add(arr);
             }
         }

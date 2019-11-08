@@ -9,6 +9,7 @@ import com.intellij.openapi.editor.event.DocumentListener;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorManager;
+import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.newvfs.BulkFileListener;
 import com.intellij.openapi.components.ProjectComponent;
@@ -26,6 +27,7 @@ import java.util.Objects;
 
 class FileModificationEntry {
     String file = "";
+    String relative_file = "";
     int line = 0;
     int column = 0;
     long lastModified = 0;
@@ -66,7 +68,7 @@ public class MobbingPlugin implements ProjectComponent, BulkFileListener {
                 int lastLine = newLength == 0 ? firstLine : document.getLineNumber(offset + newLength - 1);
 
                 Editor editor = FileEditorManager.getInstance(project).getSelectedTextEditor();
-                int columnNumber = editor.getCaretModel().getOffset() - document.getLineStartOffset(firstLine);
+                int columnNumber = java.lang.Math.abs(editor.getCaretModel().getOffset()) - java.lang.Math.abs((document.getLineStartOffset(firstLine)));
 
                 boolean oldUpdated = false;
 
@@ -85,6 +87,7 @@ public class MobbingPlugin implements ProjectComponent, BulkFileListener {
                 else {
                     FileModificationEntry fme = new FileModificationEntry();
                     fme.file = file.getCanonicalPath();
+                    fme.relative_file = fme.file.replace(project.getBasePath() + "/", "");
                     fme.lastModified = System.currentTimeMillis() / 1000L;
                     fme.line = firstLine;
                     fme.column = columnNumber;
